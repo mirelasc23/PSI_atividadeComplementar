@@ -3,7 +3,13 @@ package br.edu.ifsc.semestreIII.psi.atividadeComplementar.introducao;
 import br.edu.ifsc.semestreIII.psi.atividadeComplementar.util.Util;
 
 public class MainT1 {
+    static int horas_apresentadas = 0, horas_apresentadas_ensino = 0, horas_apresentadas_pesquisa = 0, 
+                horas_apresentadas_extensao = 0, hora_apresentadas_outrasAtividades = 0, 
+                horas_validadas = 0, horas_validadas_ensino = 0, horas_validadas_pesquisa = 0, 
+                horas_validadas_extensao = 0, horas_validadas_outrasAtividades = 0;
+    
     public static void main(String[] args) {
+        
         menu();
         
         
@@ -51,6 +57,13 @@ public class MainT1 {
         
         int escolha = Util.lerInt();
         switch (escolha){
+            case 7:
+            case 8:
+                horas_apresentadas_ensino += 20;
+                horas_apresentadas_pesquisa += 20;
+                horas_validadas_outrasAtividades += 20;
+                break;
+                
             case 11: menu();
                 break;
         }
@@ -93,6 +106,9 @@ public class MainT1 {
         
         int escolha = Util.lerInt();
         switch (escolha){
+            case 2:
+                horas_apresentadas_extensao += 20;
+                break;
             case 8: menu();
                 break;
         }
