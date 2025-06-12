@@ -9,6 +9,25 @@ public class MainT1 {
                 horas_validadas_extensao = 0, horas_validadas_outrasAtividades = 0;
     
     public static void main(String[] args) {
+        String nome, curso, numero_requerimento,
+                matricula, turno;
+        
+        System.out.println("Informe o nome do aluno:");
+        nome = Util.lerString();
+        
+        System.out.println("Informe a matrícula do aluno:");
+        nome = Util.lerString();
+        
+        System.out.println("Informe o curso do aluno:");
+        nome = Util.lerString();
+        
+        System.out.println("Informe o turno do curso do aluno:");
+        nome = Util.lerString();
+                
+        System.out.println("Informe o número do requerimento:");
+        nome = Util.lerString();
+        
+        
         
         menu();
         
