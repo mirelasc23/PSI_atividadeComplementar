@@ -31,7 +31,22 @@ public class Modalidade {
             menuAtividades.append(i + 1 + " - " + atividades.get(i).getDescricao() + "\n");
         }
         menuAtividades.append("0 - Voltar.\nEscolha uma das opções");
-        System.out.println(menuAtividades);
+
+        int opcao;
+
+        do {
+            System.out.println(menuAtividades);
+            opcao = scanner.nextInt();
+            if (opcao > atividades.size()) {
+                System.out.println("Selecione uma atividade válida");
+            } else {
+                var atividadeSelecionada = atividades.get(opcao);
+                System.out.println("Quantas horas nesta atividade vc fez?");
+                var horas = scanner.nextDouble();
+                var atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
+                Repositorio.INSTANCE.addAtividadeDeclarada(atividadeDeclarada);
+            }
+        } while (opcao != 0);
 
         while (scanner.nextInt() != 0) {
             System.out.println(menuAtividades);

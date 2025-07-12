@@ -10,11 +10,21 @@ public class Repositorio {
         return modalidades;
     }
     private List<Modalidade> modalidades = new ArrayList<>(4);
+    private List<AtividadeDeclarada> atividadeDeclaradas = new ArrayList<>();
+
     private Repositorio() {
         inicializarAtividadesExtensao();
         inicializarAtividadesComplementacao();
         inicializarAtividadesEnsino();
         inicializarAtividadesPesquisaEIinovacao();
+    }
+
+    public void addAtividadeDeclarada(AtividadeDeclarada atividadeDeclarada) {
+        atividadeDeclaradas.add(atividadeDeclarada);
+    }
+
+    public List<AtividadeDeclarada> getAtividadeDeclaradas() {
+        return atividadeDeclaradas;
     }
 
     private void inicializarAtividadesEnsino() {
