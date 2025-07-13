@@ -1,12 +1,25 @@
 package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
 
+import java.util.Random;
+
 public class Aluno {
-    private String matricula;
-    public Aluno(String matricula) {
+    private String matricula, nome;
+    public Aluno(String nome) {
+        this.nome = nome;
+
+        // Gera o número aleatório
+        int tamanho = 8;
+        Random random = new Random();
+        int min = (int) Math.pow(10, tamanho - 1); // 10^(tamanho-1)
+        int max = (int) Math.pow(10, tamanho) - 1; // 10^(tamanho) - 1
+        int numero = random.nextInt(max - min + 1) + min;
+        
         this.matricula = matricula;
     }
-    
-    public void gerarRequerimento(String numero){
-        Requerimento requerimento = new Requerimento(this, numero);
+
+    public String matricula() {
+        return matricula;
     }
+    
+    
 }

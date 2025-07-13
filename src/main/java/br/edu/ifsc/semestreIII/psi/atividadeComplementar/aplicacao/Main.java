@@ -1,6 +1,7 @@
 package br.edu.ifsc.semestreIII.psi.atividadeComplementar.aplicacao;
 
 import br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades.*;
+import br.edu.ifsc.semestreIII.psi.atividadeComplementar.util.Util;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
@@ -12,6 +13,16 @@ public class Main {
         System.out.println("Digite a matricula do Aluno");
         ///var aluno = new Aluno(scanner.next());
         Aluno aluno = new Aluno(scanner.next());
+        
+        // MIRELA---------INICIO
+        
+        /*System.out.println("Digite o numero do requerimento");
+        Requerimento requerimento = new Requerimento(aluno, Util.lerString());*/
+        Requerimento requerimento = new Requerimento(aluno);
+        
+        
+        
+        // MIRELA---------FIM
 
         //var modalidades = Repositorio.INSTANCE.getModalidades();
         //var menuModalidades = new StringBuilder("==Menu de Modalidades==\n");                //adiciona item ao menu
@@ -32,14 +43,16 @@ public class Main {
             if (opcao >= modalidades.size()) {
                 System.out.println("\n!!!! Selecione uma modalidade válida!!!\n");
             } else if (opcao >= 0) {
-                modalidades.get(opcao).mostrarMenu(scanner); //mostra o item do submenu do menu escolhido
+                modalidades.get(opcao).mostrarMenu(scanner, requerimento); //mostra o item do submenu do menu escolhido
             }
         } while (opcao >= 0);
 
+        // MIRELA
         // somatoria em mapa
         
         
-        
+        System.out.println(requerimento);
+        System.out.println("Horas apresentadas: " + requerimento.soma());
         
         //validacao
 

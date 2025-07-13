@@ -4,6 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HorasValidadas {
-    Map<Atividade, > horasValidadas = new HashMap<Integer, AtividadeValidada>;
+    //Map<Atividade, > horasValidadas = new HashMap<Integer, AtividadeValidada>;
         
 }

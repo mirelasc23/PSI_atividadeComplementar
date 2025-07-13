@@ -24,7 +24,7 @@ public class Modalidade {
         return nome;
     }
 
-    public void mostrarMenu(Scanner scanner){
+    public void mostrarMenu(Scanner scanner, Requerimento requerimento){
         //var menuAtividades = new StringBuilder("==Menu de Atividades==\n");
         StringBuilder menuAtividades = new StringBuilder("==Menu de Atividades==\n");
 
@@ -48,7 +48,7 @@ public class Modalidade {
                 //var horas = scanner.nextDouble();
                 //var atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
                 double horas = scanner.nextDouble();
-                AtividadeDeclarada atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
+                AtividadeDeclarada atividadeDeclarada = new AtividadeDeclarada(requerimento, horas, atividadeSelecionada);
                 Repositorio.INSTANCE.addAtividadeDeclarada(atividadeDeclarada);
             }
         } while (opcao >= 0);
