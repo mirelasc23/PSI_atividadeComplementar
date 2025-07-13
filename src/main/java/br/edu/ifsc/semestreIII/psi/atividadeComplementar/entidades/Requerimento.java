@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Random;
 
 public class Requerimento {
-    private Aluno aluno;
+    private CursoDoAluno aluno;
     private String numero;
     private List<AtividadeDeclarada> atividadesDeclaradas;
 
-    public Requerimento(Aluno aluno) {
+    public Requerimento(CursoDoAluno aluno) {
         // Define o tamanho do número aleatório
         int tamanho = 8;
 
@@ -49,7 +49,7 @@ public class Requerimento {
         return soma;
     }
 
-    public Aluno aluno() {
+    public CursoDoAluno aluno() {
         return aluno;
     }
 

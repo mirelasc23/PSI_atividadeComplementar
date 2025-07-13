@@ -9,5 +9,11 @@ public class TurnoDoCurso {
         this.turno =  turnos.turno(turno_id.toUpperCase());
     }
     
+    public String turno() {
+        return turno.nome();
+    }
     
+    public int horasComplementares() {
+        return curso.horasComplementares();
+    }
 }

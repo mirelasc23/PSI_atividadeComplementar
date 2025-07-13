@@ -11,8 +11,8 @@ public class Main {
         //var scanner = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
         
-        Turnos turnos = new Turnos();
-        Curso ads = new Curso("Análise e Desenvolvimento de Sistemas", 100, turnos, "n");
+        //Turnos turnos = new Turnos();
+        //Curso ads = new Curso("Análise e Desenvolvimento de Sistemas", 100, turnos, "n");
         
         //System.out.println("Digite a matricula do Aluno");
         ///var aluno = new Aluno(scanner.next());
@@ -22,14 +22,14 @@ public class Main {
         
         /*System.out.println("Digite o numero do requerimento");
         Requerimento requerimento = new Requerimento(aluno, Util.lerString());*/
-        Requerimento requerimento = new Requerimento(aluno);
+        Requerimento requerimento = new Requerimento(aluno, "ads_n");
         
         
         //saída_conferencia
-        System.out.println("Aluno: " + aluno.matricula() + 
-                "\nCurso: " + ads.nome() + 
-                "\nTurno: " + ads.turno() + 
-                "\nRequerimento: " + requerimento.numero());
+        //System.out.println("Aluno: " + aluno.matricula() + 
+        //        "\nCurso: " + ads.nome() + 
+        //        "\nTurno: " + ads.turno() + 
+        //        "\nRequerimento: " + requerimento.numero());
         
         
         

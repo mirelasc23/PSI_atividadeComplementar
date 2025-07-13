@@ -2,21 +2,22 @@ package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
 
 public class CursoDoAluno {
     private Aluno aluno;
-    private Curso curso;
-    private Turno turno;
+    private TurnoDoCurso curso;
 
-    public CursoDoAluno(Aluno aluno, Curso curso, Turnos turnos, String turno_id) {
+    public CursoDoAluno(Aluno aluno, String curso_id) {
         this.aluno = aluno;
         this.curso = curso;
-        this.turno =  turnos.turno(turno_id.toUpperCase());
     }
     
     public String turno() {
-        return turno.nome();
+        return curso.turno();
     }
     
     public int horasComplementares() {
         return curso.horasComplementares();
     }
     
+    public String matricula() {
+        return aluno.matricula();
+    }
 }
