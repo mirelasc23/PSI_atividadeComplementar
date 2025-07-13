@@ -1,4 +1,4 @@
-package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
+package renata;
 
 public class Requerimento {
 

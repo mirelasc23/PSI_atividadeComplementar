@@ -1,4 +1,4 @@
-package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
+package renata;
 
 import java.util.ArrayList;
 import java.util.List;

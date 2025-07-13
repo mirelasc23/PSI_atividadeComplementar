@@ -1,4 +1,4 @@
-package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
+package renata;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class Modalidade {
     }
 
     public void mostrarMenu(Scanner scanner){
-        StringBuilder menuAtividades = new StringBuilder("==Menu de Atividades==\n");
+        var menuAtividades = new StringBuilder("==Menu de Atividades==\n");
 
         for (int i = 0; i < atividades.size(); i++) {
             menuAtividades.append(i + 1 + " - " + atividades.get(i).getDescricao() + "\n");
@@ -36,20 +36,19 @@ public class Modalidade {
 
         do {
             System.out.println(menuAtividades);
-            opcao = scanner.nextInt();
-            if (opcao > atividades.size()) {
-                System.out.println("Selecione uma atividade válida");
-            } else {
-                Atividade atividadeSelecionada = atividades.get(opcao);
+            opcao = scanner.nextInt() - 1;
+
+            if (opcao >= atividades.size()) {
+                System.out.println("\n!!!! Selecione uma atividade válida!!!\n");
+            } else if (opcao >= 0) {
+                var atividadeSelecionada = atividades.get(opcao);
                 System.out.println("Quantas horas nesta atividade vc fez?");
-                Double horas = scanner.nextDouble();
-                AtividadeDeclarada atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
+                var horas = scanner.nextDouble();
+                var atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
                 Repositorio.INSTANCE.addAtividadeDeclarada(atividadeDeclarada);
             }
-        } while (opcao != 0);
-
-        while (scanner.nextInt() != 0) {
-            System.out.println(menuAtividades);
-        }
+        } while (opcao >= 0);
     }
+
+
 }
