@@ -48,6 +48,17 @@ public class Requerimento {
             }
         return soma;
     }
+
+    public Aluno aluno() {
+        return aluno;
+    }
+
+    public int horasComplementares() {
+        return aluno.horasComplementares();
+    }
+    
+    
+    
     @Override
     public String toString() {
         return "Requerimento: " + numero() + "\nMatrículoa do Aluno: " + aluno.matricula();

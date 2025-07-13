@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Aluno {
     private String matricula, nome;
+    
     public Aluno(String nome) {
         this.nome = nome;
 
@@ -21,5 +22,7 @@ public class Aluno {
         return matricula;
     }
     
-    
+    public String nome() {
+        return nome;
+    }
 }
