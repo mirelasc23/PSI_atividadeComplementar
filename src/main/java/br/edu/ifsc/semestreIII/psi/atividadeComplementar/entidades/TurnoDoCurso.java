@@ -16,4 +16,8 @@ public class TurnoDoCurso {
     public int horasComplementares() {
         return curso.horasComplementares();
     }
+    
+    public String curso() {
+        return curso.nome() + " - " + turno.nome();
+    }
 }

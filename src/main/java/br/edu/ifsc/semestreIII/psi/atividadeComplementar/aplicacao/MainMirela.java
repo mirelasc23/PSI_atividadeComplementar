@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.ifsc.semestreIII.psi.atividadeComplementar.aplicacao;
 
-/**
- *
- * @author Info
- */
+import br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades.Repositorio;
+import br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades.Repositorio_Cursos;
+
 public class MainMirela {
-    
+    public static void main(String[] args) {
+        StringBuilder cursos = Repositorio_Cursos.INSTANCE.menuCursos();
+        StringBuilder modalidades = Repositorio.INSTANCE.menuModalidades();
+        
+        System.out.println(cursos);
+        System.out.println(modalidades);
+        
+    }
 }

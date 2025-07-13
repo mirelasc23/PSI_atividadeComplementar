@@ -5,13 +5,9 @@ import java.util.List;
 
 public class Repositorio {
     public static final Repositorio INSTANCE = new Repositorio(); //aqui esta sendo utilizado o padrao Singleton
-
-    public List<Modalidade> getModalidades() {
-        return modalidades;
-    }
     private List<Modalidade> modalidades = new ArrayList<>(4);
     private List<AtividadeDeclarada> atividadeDeclaradas = new ArrayList<>();
-
+    
     private Repositorio() {
         inicializarAtividadesExtensao();
         inicializarAtividadesComplementacao();
@@ -27,6 +23,10 @@ public class Repositorio {
         return atividadeDeclaradas;
     }
 
+    public List<Modalidade> getModalidades() {
+        return modalidades;
+    }
+    
     private void inicializarAtividadesEnsino() {
         Modalidade ensino = new Modalidade("Ensino", 40);
         ensino.addAtividade(new Atividade("Disciplinas cursadas com aproveitamento, não previstas no currículo do curso", 80));
@@ -83,5 +83,14 @@ public class Repositorio {
         complementacao.addAtividade(new Atividade("Participação em projetos sociais, trabalho voluntário em entidades vinculadas a compromissos sociopolíticos", 20));
         complementacao.addAtividade(new Atividade("Desenvolvimento de atividades socioculturais, artísticas e esportivas (coral, música, dança, bandas, vídeos, cinema, cineclubes, teatro, campeonatos esportivos etc)", 20));
         modalidades.add(complementacao);
+    }
+    
+    public StringBuilder menuModalidades(){
+        StringBuilder menuModalidades = new StringBuilder("==Menu de Modalidades==\n");                //adiciona item ao menu
+        for (int i = 0; i < modalidades.size(); i++) {                                       // monta o menu
+            menuModalidades.append(i + 1 + " - " + modalidades.get(i).getNome() + "\n");     //index + 1 resulta no numero correspondente ao menu para o usuario escolher
+        }
+        menuModalidades.append("0 - Finalizar e emitir parecer.\nEscolha uma das opções");
+        return menuModalidades;
     }
 }
