@@ -1,0 +1,8 @@
+public class HorasValidadas{
+    private AtividadeDeclarada atividadeDeclarada;
+
+    public HorasValidadas(AtividadeDeclarada atividadeDeclarada) {
+        this.atividadeDeclarada = atividadeDeclarada;
+        
+    }
+}
