@@ -31,6 +31,12 @@ public class Requerimento {
         this.atividadesDeclaradas.add(atividadeDeclarada);
     }
 
+    public List<AtividadeDeclarada> atividadesDeclaradas() {
+        return atividadesDeclaradas;
+    }
+    
+    
+
     public String numero() {
         return numero;
     }

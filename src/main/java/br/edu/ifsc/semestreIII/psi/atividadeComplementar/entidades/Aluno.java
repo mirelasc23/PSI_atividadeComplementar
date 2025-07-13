@@ -12,9 +12,9 @@ public class Aluno {
         Random random = new Random();
         int min = (int) Math.pow(10, tamanho - 1); // 10^(tamanho-1)
         int max = (int) Math.pow(10, tamanho) - 1; // 10^(tamanho) - 1
-        int numero = random.nextInt(max - min + 1) + min;
+        int numero_matricula = random.nextInt(max - min + 1) + min;
         
-        this.matricula = matricula;
+        this.matricula = Integer.toString(numero_matricula);
     }
 
     public String matricula() {
