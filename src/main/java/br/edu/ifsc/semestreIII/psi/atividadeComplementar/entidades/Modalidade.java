@@ -25,7 +25,7 @@ public class Modalidade {
     }
 
     public void mostrarMenu(Scanner scanner){
-        var menuAtividades = new StringBuilder("==Menu de Atividades==\n");
+        StringBuilder menuAtividades = new StringBuilder("==Menu de Atividades==\n");
 
         for (int i = 0; i < atividades.size(); i++) {
             menuAtividades.append(i + 1 + " - " + atividades.get(i).getDescricao() + "\n");
@@ -40,10 +40,10 @@ public class Modalidade {
             if (opcao > atividades.size()) {
                 System.out.println("Selecione uma atividade válida");
             } else {
-                var atividadeSelecionada = atividades.get(opcao);
+                Atividade atividadeSelecionada = atividades.get(opcao);
                 System.out.println("Quantas horas nesta atividade vc fez?");
-                var horas = scanner.nextDouble();
-                var atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
+                Double horas = scanner.nextDouble();
+                AtividadeDeclarada atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
                 Repositorio.INSTANCE.addAtividadeDeclarada(atividadeDeclarada);
             }
         } while (opcao != 0);
