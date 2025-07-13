@@ -1,6 +1,7 @@
 package br.edu.ifsc.semestreIII.psi.atividadeComplementar.aplicacao;
 
 import br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades.*;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,7 +36,12 @@ public class Main {
             }
         } while (opcao >= 0);
 
+        // somatoria em mapa
         
+        
+        
+        
+        //validacao
 
     }
 }
