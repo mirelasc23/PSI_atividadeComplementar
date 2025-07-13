@@ -1,4 +1,4 @@
-package renata;
+package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
 
 public class Aluno {
     private String matricula;

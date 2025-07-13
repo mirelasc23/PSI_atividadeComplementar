@@ -1,4 +1,4 @@
-package renata;
+package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
 
 public class AtividadeDeclarada {
     private double horasDeclaradas;

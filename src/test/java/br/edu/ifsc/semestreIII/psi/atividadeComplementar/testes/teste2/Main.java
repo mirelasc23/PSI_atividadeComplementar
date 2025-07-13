@@ -1,4 +1,4 @@
-package br.edu.ifsc.trabalhopsi_atividadescomplementares;
+package br.edu.ifsc.semestreIII.psi.atividadeComplementar.testes.teste2;
 
 import br.edu.ifsc.trabalhopsi_atividadescomplementares.entidades.of.util.Util;
 

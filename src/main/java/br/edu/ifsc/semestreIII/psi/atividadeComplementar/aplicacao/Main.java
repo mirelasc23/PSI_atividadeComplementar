@@ -1,4 +1,4 @@
-package renata;
+package br.edu.ifsc.semestreIII.psi.atividadeComplementar.aplicacao;
 import com.sun.source.tree.NewArrayTree;
 import java.util.List;
 import java.util.Scanner;
