@@ -96,8 +96,12 @@ public class HorasValidadas {
         boolean inserido = false;
         for (Map.Entry<Modalidade, Double> modalidade : horasValidadasPorModalidade.entrySet()) {
             if(atividade.atividade().modalidade() == modalidade.getKey()){
+                if((horasValidadasPorModalidade.get(atividade.atividade().modalidade()) + horasValidas) > atividade.limiteMaximo()){
+                    horasValidadasPorModalidade.put(atividade.atividade().modalidade(), Double.parseDouble(String.valueOf(atividade.percentualMaximo() * requerimento.horasComplementares() / 100)));
+                }else{
+                    horasValidadasPorModalidade.put(atividade.atividade().modalidade(), horasValidadasPorModalidade.get(atividade.atividade().modalidade()) + horasValidas);
+                }
                 
-                horasValidadasPorModalidade.put(atividade.atividade().modalidade(), (horasValidadasPorModalidade.get(atividade) + horasValidas));
                 inserido = true;
             }
         }
