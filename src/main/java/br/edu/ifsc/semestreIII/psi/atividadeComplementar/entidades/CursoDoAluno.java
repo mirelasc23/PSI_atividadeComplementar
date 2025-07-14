@@ -4,7 +4,7 @@ public class CursoDoAluno {
     private Aluno aluno;
     private TurnoDoCurso curso;
 
-    public CursoDoAluno(Aluno aluno, String curso_id) {
+    public CursoDoAluno(Aluno aluno, TurnoDoCurso curso) {
         this.aluno = aluno;
         this.curso = curso;
     }

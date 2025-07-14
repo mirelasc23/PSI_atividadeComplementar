@@ -38,11 +38,12 @@ public class Repositorio_Cursos {
             for (int i = 0; i < cursos.size(); i++) {                                       // monta o menu
                 menuCursos.append((i + 1) + " - " + cursos.get(i).curso() + "\n");     //index + 1 resulta no numero correspondente ao menu para o usuario escolher
             }
-            //menuCursos.append("Escolha o curso: ");
+            menuCursos.append("Escolha o curso: ");
         return menuCursos;
     }
-    
 
-    
-    
+    public List<TurnoDoCurso> cursos() {
+        return cursos;
+    }
+        
 }

@@ -14,5 +14,13 @@ public class AtividadeDeclarada {
         return horasDeclaradas;
     }
     
+    public String descricao(){
+        return atividade.getDescricao();
+    }
+
+    public Atividade getAtividade() {
+        return atividade;
+    }
+    
     
 }

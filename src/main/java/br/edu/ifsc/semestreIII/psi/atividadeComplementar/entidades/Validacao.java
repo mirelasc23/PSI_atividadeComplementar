@@ -13,6 +13,9 @@ public class Validacao {
     public void validar(){
         if(requerimento.soma() < requerimento.horasComplementares()){
             System.out.println("Requerimento indeferido. \nMotivo: não atingiu as horas mínimas necessárias.");
+        } else {
+            horasValidadas = new HorasValidadas(this.requerimento);
+            horasValidadas.validarHoras();
         }
     }
 }

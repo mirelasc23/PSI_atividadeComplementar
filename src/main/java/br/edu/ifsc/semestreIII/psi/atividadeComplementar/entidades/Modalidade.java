@@ -1,5 +1,6 @@
 package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
 
+import br.edu.ifsc.semestreIII.psi.atividadeComplementar.util.Util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,7 +25,7 @@ public class Modalidade {
         return nome;
     }
 
-    public void mostrarMenu(Scanner scanner, Requerimento requerimento){
+    public void mostrarMenu(Requerimento requerimento){
         //var menuAtividades = new StringBuilder("==Menu de Atividades==\n");
         StringBuilder menuAtividades = new StringBuilder("==Menu de Atividades==\n");
 
@@ -37,7 +38,7 @@ public class Modalidade {
 
         do {
             System.out.println(menuAtividades);
-            opcao = scanner.nextInt() - 1;
+            opcao = Util.lerInt() - 1;
 
             if (opcao >= atividades.size()) {
                 System.out.println("\n!!!! Selecione uma atividade válida!!!\n");
@@ -47,7 +48,7 @@ public class Modalidade {
                 System.out.println("Quantas horas nesta atividade vc fez?");
                 //var horas = scanner.nextDouble();
                 //var atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
-                double horas = scanner.nextDouble();
+                double horas = Util.lerDouble();
                 AtividadeDeclarada atividadeDeclarada = new AtividadeDeclarada(requerimento, horas, atividadeSelecionada);
                 Repositorio.INSTANCE.addAtividadeDeclarada(atividadeDeclarada);
             }

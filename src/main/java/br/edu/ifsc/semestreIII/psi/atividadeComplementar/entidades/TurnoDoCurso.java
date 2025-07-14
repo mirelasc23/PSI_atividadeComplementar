@@ -20,4 +20,8 @@ public class TurnoDoCurso {
     public String curso() {
         return curso.nome() + " - " + turno.nome();
     }
+    
+    public TurnoDoCurso curso_turno(){
+        return this;
+    }
 }

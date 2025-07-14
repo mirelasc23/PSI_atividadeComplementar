@@ -1,5 +1,6 @@
 package br.edu.ifsc.semestreIII.psi.atividadeComplementar.entidades;
 
+import br.edu.ifsc.semestreIII.psi.atividadeComplementar.util.Util;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,6 +92,9 @@ public class Repositorio {
             menuModalidades.append(i + 1 + " - " + modalidades.get(i).getNome() + "\n");     //index + 1 resulta no numero correspondente ao menu para o usuario escolher
         }
         menuModalidades.append("0 - Finalizar e emitir parecer.\nEscolha uma das opções");
+      
+
         return menuModalidades;
+        
     }
 }

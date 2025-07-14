@@ -35,8 +35,6 @@ public class Requerimento {
         return atividadesDeclaradas;
     }
     
-    
-
     public String numero() {
         return numero;
     }
@@ -56,7 +54,6 @@ public class Requerimento {
     public int horasComplementares() {
         return aluno.horasComplementares();
     }
-    
     
     
     @Override

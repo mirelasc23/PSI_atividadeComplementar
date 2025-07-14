@@ -22,7 +22,7 @@ public class Main {
         
         /*System.out.println("Digite o numero do requerimento");
         Requerimento requerimento = new Requerimento(aluno, Util.lerString());*/
-        Requerimento requerimento = new Requerimento(aluno, "ads_n");
+        //Requerimento requerimento = new Requerimento(aluno, "ads_n");
         
         
         //saída_conferencia
@@ -55,7 +55,7 @@ public class Main {
             if (opcao >= modalidades.size()) {
                 System.out.println("\n!!!! Selecione uma modalidade válida!!!\n");
             } else if (opcao >= 0) {
-                modalidades.get(opcao).mostrarMenu(scanner, requerimento); //mostra o item do submenu do menu escolhido
+//                modalidades.get(opcao).mostrarMenu(scanner, requerimento); //mostra o item do submenu do menu escolhido
             }
         } while (opcao >= 0);
 
@@ -63,8 +63,8 @@ public class Main {
         // somatoria em mapa
         
         
-        System.out.println(requerimento);
-        System.out.println("Horas apresentadas: " + requerimento.soma());
+        //System.out.println(requerimento);
+        //System.out.println("Horas apresentadas: " + requerimento.soma());
         
         Avaliador avaliador = new Avaliador("willian");
         
