@@ -22,7 +22,9 @@ Passo-a-passo para executar o sistema:
       git clone https://github.com/seuusuario/PSI_atividadeComplementar.git
       
 2.Abra o projeto na IDE de sua preferência
+
 3.Compile
+
 4.Execute a classe principal
 
       Main.java
