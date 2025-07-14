@@ -15,14 +15,15 @@ Pré-requisitos:
 Java JDK e IDE (recomendadas: NetBeans, Eclipse ou IntelliJ) instalados na máquina.
 
 Passo-a-passo para executar o sistema:
-1.Clone o repositório;
+
+1.Clone o repositório
 
       ```bash
       git clone https://github.com/seuusuario/PSI_atividadeComplementar.git
       
-2.Abra o projeto na IDE de sua preferência;
-3.Compile;
-4.Execute a classe principal;
+2.Abra o projeto na IDE de sua preferência
+3.Compile
+4.Execute a classe principal
 
       Main.java
       
