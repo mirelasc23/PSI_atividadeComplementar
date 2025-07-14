@@ -2,16 +2,16 @@ package renata;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Objects;
 
 public class Modalidade {
     private String nome;
-    private double percentualMaximo;
+    private double horasMaximas;
     private List<Atividade> atividades;
 
-    public Modalidade(String nome, double percentualMaximo) {
+    public Modalidade(String nome, double horasMaximas) {
         this.nome = nome;
-        this.percentualMaximo = percentualMaximo;
+        this.horasMaximas = horasMaximas;
         this.atividades = new ArrayList<>();
     }
 
@@ -24,31 +24,24 @@ public class Modalidade {
         return nome;
     }
 
-    public void mostrarMenu(Scanner scanner){
-        var menuAtividades = new StringBuilder("==Menu de Atividades==\n");
-
-        for (int i = 0; i < atividades.size(); i++) {
-            menuAtividades.append(i + 1 + " - " + atividades.get(i).getDescricao() + "\n");
-        }
-        menuAtividades.append("0 - Voltar.\nEscolha uma das opções");
-
-        int opcao;
-
-        do {
-            System.out.println(menuAtividades);
-            opcao = scanner.nextInt() - 1;
-
-            if (opcao >= atividades.size()) {
-                System.out.println("\n!!!! Selecione uma atividade válida!!!\n");
-            } else if (opcao >= 0) {
-                var atividadeSelecionada = atividades.get(opcao);
-                System.out.println("Quantas horas nesta atividade vc fez?");
-                var horas = scanner.nextDouble();
-                var atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
-                Repositorio.INSTANCE.addAtividadeDeclarada(atividadeDeclarada);
-            }
-        } while (opcao >= 0);
+    public List<Atividade> getAtividades() {
+        return atividades;
     }
 
+    public double getHorasMaximas() {
+        return horasMaximas;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Modalidade that = (Modalidade) o;
+        return Objects.equals(nome, that.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
+    }
 }

@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Repositorio {
-    public static final Repositorio INSTANCE = new Repositorio(); //aqui esta sendo utilizado o padrao Singleton
 
-    public List<Modalidade> getModalidades() {
-        return modalidades;
-    }
-    private List<Modalidade> modalidades = new ArrayList<>(4);
-    private List<AtividadeDeclarada> atividadeDeclaradas = new ArrayList<>();
+    public static final Repositorio INSTANCE = new Repositorio();
+    private final List<Modalidade> modalidades = new ArrayList<>(4);
 
     private Repositorio() {
         inicializarAtividadesExtensao();
@@ -19,14 +15,9 @@ public class Repositorio {
         inicializarAtividadesPesquisaEIinovacao();
     }
 
-    public void addAtividadeDeclarada(AtividadeDeclarada atividadeDeclarada) {
-        atividadeDeclaradas.add(atividadeDeclarada);
+    public List<Modalidade> getModalidades() {
+        return modalidades;
     }
-
-    public List<AtividadeDeclarada> getAtividadeDeclaradas() {
-        return atividadeDeclaradas;
-    }
-
     private void inicializarAtividadesEnsino() {
         Modalidade ensino = new Modalidade("Ensino", 40);
         ensino.addAtividade(new Atividade("Disciplinas cursadas com aproveitamento, não previstas no currículo do curso", 80));
