@@ -2,6 +2,7 @@ package renata;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -18,29 +19,29 @@ public class Requerimento {
     }
 
     public void valida() {
-        var atividadeHoras = new HashMap<Atividade, Double>();
+        Map<Atividade, Double> atividadeHoras = new HashMap<>();
 
         atividadesAvaliadas.forEach(atividadeAvaliada -> {
-            var atividade = atividadeAvaliada.atividadeDeclarada.getAtividade();
+            Atividade atividade = atividadeAvaliada.atividadeDeclarada.getAtividade();
 
             atividadeHoras.computeIfPresent(atividade, (key, valorAtual) -> {
-                var total = valorAtual + atividadeAvaliada.horasValidadas;
+                double total = valorAtual + atividadeAvaliada.horasValidadas;
                 return Double.min(total, atividade.getLimiteMaxHoras());
             });
             atividadeHoras.putIfAbsent(atividade, atividadeAvaliada.horasValidadas);
         });
 
-        var atividadesPorModalidade = atividadesAvaliadas.stream()
+        Map<Modalidade, List<AtividadeAvaliada>> atividadesPorModalidade = atividadesAvaliadas.stream()
                 .collect(Collectors.groupingBy(a -> a.atividadeDeclarada.getAtividade().getModalidade()));
 
-        var modalidadesHoras = new HashMap<Modalidade, Double>();
+        Map<Modalidade, Double> modalidadesHoras = new HashMap<>();
 
         atividadesPorModalidade.forEach((m, avaliadas) -> {
-            var total = avaliadas.stream().mapToDouble(a -> a.horasValidadas).sum();
+            double total = avaliadas.stream().mapToDouble(a -> a.horasValidadas).sum();
             modalidadesHoras.put(m, Double.min(total, m.getHorasMaximas()));
         });
 
-        var horasValidadas = modalidadesHoras.values().stream().reduce(0.0, Double::sum);
+        double horasValidadas = modalidadesHoras.values().stream().reduce(0.0, Double::sum);
 
         if (horasValidadas < horasMinimas) {
             throw new IllegalArgumentException("Horas calculadas: " + horasValidadas + " não atingiram o minímo necessário");

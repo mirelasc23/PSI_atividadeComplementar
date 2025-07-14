@@ -1,5 +1,7 @@
 package renata;
 
+import java.util.List;
+
 import static renata.ScannerUtils.SCANNER;
 
 public class Main {
@@ -7,8 +9,8 @@ public class Main {
         System.out.println("Digite a matricula do Aluno");
         var aluno = new Aluno(SCANNER.next());
 
-        var menu = new Menu();
-        var atividadesDeclaradas = menu.mostraMenuERetornaAtividadesDeclaradas();
+        Menu menu = new Menu();
+        List<AtividadeDeclarada> atividadesDeclaradas = menu.mostraMenuERetornaAtividadesDeclaradas();
 
         var requerimento = new Requerimento(aluno, atividadesDeclaradas);
         requerimento.atividadesAvaliadas = menu.mostraMenuAvaliadorERetornaAvaliadas(requerimento.atividadesDeclaradas);

@@ -13,8 +13,8 @@ public class Menu {
     }
 
     private String montaMenuModalidades() {
-        var modalidades = Repositorio.INSTANCE.getModalidades();
-        var menuModalidades = new StringBuilder("==Menu de Modalidades==\n");                //adiciona item ao menu
+        List<Modalidade> modalidades = Repositorio.INSTANCE.getModalidades();
+        StringBuilder menuModalidades = new StringBuilder("==Menu de Modalidades==\n");                //adiciona item ao menu
         for (int i = 0; i < modalidades.size(); i++) {                                       // monta o menu
             menuModalidades.append(i + 1 + " - " + modalidades.get(i).getNome() + "\n");     //index + 1 resulta no numero correspondente ao menu para o usuario escolher
         }
@@ -22,9 +22,9 @@ public class Menu {
     }
 
     public List<AtividadeDeclarada> mostraMenuERetornaAtividadesDeclaradas() {
-        var modalidades = Repositorio.INSTANCE.getModalidades();
-        var opcao = 0;
-        var atividadesDeclaradas = new ArrayList<AtividadeDeclarada>();
+        List<Modalidade> modalidades = Repositorio.INSTANCE.getModalidades();
+        int opcao = 0;
+        List<AtividadeDeclarada> atividadesDeclaradas = new ArrayList<>();
 
         do {
             System.out.println(menuModalidades);
@@ -33,7 +33,7 @@ public class Menu {
             if (opcao >= modalidades.size()) {
                 System.out.println("\n!!!! Selecione uma modalidade válida!!!\n");
             } else if (opcao >= 0) {
-                var declaradas = mostraMenu(modalidades.get(opcao));
+                List<AtividadeDeclarada> declaradas = mostraMenu(modalidades.get(opcao));
                 atividadesDeclaradas.addAll(declaradas);
             }
         } while (opcao >= 0);
@@ -50,15 +50,15 @@ public class Menu {
                     System.out.println("Atividade: " + a.getAtividade().getDescricao());
                     System.out.println("Horas declaradas: " + a.getHorasDeclaradas());
                     System.out.println("Digite a quantidade de horas validadas para esta atividade a seguir");
-                    var horasAvaliadas = SCANNER.nextDouble();
+                    double horasAvaliadas = SCANNER.nextDouble();
                     return new AtividadeAvaliada(a, horasAvaliadas);
                 })
                 .toList();
     }
 
     private List<AtividadeDeclarada> mostraMenu(Modalidade modalidade) {
-        var atividades = modalidade.getAtividades();
-        var menuAtividades = new StringBuilder("==Menu de Atividades==\n");
+        List<Atividade> atividades = modalidade.getAtividades();
+        StringBuilder menuAtividades = new StringBuilder("==Menu de Atividades==\n");
 
         for (int i = 0; i < atividades.size(); i++) {
             menuAtividades
@@ -70,7 +70,7 @@ public class Menu {
         menuAtividades.append("0 - Voltar.\nEscolha uma das opções");
 
         int opcao;
-        var atividadesDeclaradas = new ArrayList<AtividadeDeclarada>();
+        List<AtividadeDeclarada> atividadesDeclaradas = new ArrayList<AtividadeDeclarada>();
 
         do {
             System.out.println(menuAtividades);
@@ -79,10 +79,10 @@ public class Menu {
             if (opcao >= atividades.size()) {
                 System.out.println("\n!!!! Selecione uma atividade válida!!!\n");
             } else if (opcao >= 0) {
-                var atividadeSelecionada = atividades.get(opcao);
+                Atividade atividadeSelecionada = atividades.get(opcao);
                 System.out.println("Quantas horas nesta atividade vc fez?");
-                var horas = SCANNER.nextDouble();
-                var atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
+                double horas = SCANNER.nextDouble();
+                AtividadeDeclarada atividadeDeclarada = new AtividadeDeclarada(horas, atividadeSelecionada);
                 atividadesDeclaradas.add(atividadeDeclarada);
             }
         } while (opcao >= 0);
