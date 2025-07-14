@@ -17,4 +17,13 @@ public class Atividade {
     public void setModalidade(Modalidade modalidade) {
         this.modalidade = modalidade;
     }
+
+    public Modalidade modalidade() {
+        return modalidade;
+    }
+    
+    public double percentualMaximo() {
+        return modalidade.percentualMaximo();
+    
+    }
 }

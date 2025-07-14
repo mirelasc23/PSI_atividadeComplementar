@@ -14,12 +14,13 @@ public class MainMirela {
         
         //CADASTRA ALUNO COM CURSO e gera requerimento
         System.out.println("--------| SECRETARIA (cadastro) |--------");
-        System.out.println("Informe o nome do aluno: ");
+        /*System.out.println("Informe o nome do aluno: ");
         String cadastro = Util.lerString();
         System.out.println(menuCursos);
-        int escolha = Util.lerInt()-1;
+        int escolha = Util.lerInt()-1;*/
+        int escolha;
         
-        CursoDoAluno maria = new CursoDoAluno(new Aluno(cadastro), cursos.get(escolha));
+        CursoDoAluno maria = new CursoDoAluno(new Aluno("mirela"), cursos.get(1));
         Requerimento requerimento = new Requerimento(maria);
         
         //ESCOLHA DAS ATIVIDADES APRESENTADAS/DECLARADAS
@@ -43,6 +44,7 @@ public class MainMirela {
         Validacao validacao = new Validacao(requerimento, avaliador);
         
         validacao.validar();
+        
         
     }
 }

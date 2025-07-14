@@ -18,9 +18,11 @@ public class AtividadeDeclarada {
         return atividade.getDescricao();
     }
 
-    public Atividade getAtividade() {
+    public Atividade atividade() {
         return atividade;
     }
     
-    
+    public double percentualMaximo() {
+        return atividade.percentualMaximo();
+    }
 }

@@ -25,6 +25,12 @@ public class Modalidade {
         return nome;
     }
 
+    public double percentualMaximo() {
+        return percentualMaximo;
+    }
+    
+    
+
     public void mostrarMenu(Requerimento requerimento){
         //var menuAtividades = new StringBuilder("==Menu de Atividades==\n");
         StringBuilder menuAtividades = new StringBuilder("==Menu de Atividades==\n");
