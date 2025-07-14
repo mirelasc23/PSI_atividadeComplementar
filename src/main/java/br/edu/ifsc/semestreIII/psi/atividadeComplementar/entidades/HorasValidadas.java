@@ -9,10 +9,12 @@ public class HorasValidadas {
     private List<AtividadeDeclarada> atividadesDeclaradas;
     private Map<Atividade, Double> horasValidadas;
     private Map<Modalidade, Double> horasValidadasPorModalidade;
+    private Requerimento requerimento;
     
 
     public HorasValidadas(Requerimento requerimento) {
         this.atividadesDeclaradas = requerimento.atividadesDeclaradas();
+        this.requerimento = requerimento;
         horasValidadas = new HashMap<>();
         horasValidadasPorModalidade = new HashMap<>();
         
@@ -30,17 +32,31 @@ public class HorasValidadas {
             int escolha = Util.lerChar();
             
             if(escolha == '1'){
-                horasValidadas.put(atividade.atividade(), atividade.horasDeclaradas());
-                horasValidadasPorModalidade(atividade, atividade.horasDeclaradas());
-                somaHorasValidas += atividade.horasDeclaradas();
+                if(atividade.horasDeclaradas() > (atividade.limiteMaximo() * requerimento.horasComplementares() / 100)){
+                    
+                    horasValidadas.put(atividade.atividade(), Double.parseDouble(String.valueOf((atividade.limiteMaximo() * requerimento.horasComplementares() / 100))));
+                    horasValidadasPorModalidade(atividade, Double.parseDouble(String.valueOf(atividade.limiteMaximo() * requerimento.horasComplementares() / 100)));
+                    somaHorasValidas += atividade.limiteMaximo() * requerimento.horasComplementares() / 100;
+                } else {
+                    horasValidadas.put(atividade.atividade(), atividade.horasDeclaradas());
+                    horasValidadasPorModalidade(atividade, atividade.horasDeclaradas());
+                    somaHorasValidas += atividade.horasDeclaradas();
+                }
+                
             }else{
                 System.out.println("Informe as horas validadas: ");
                 double horasValidas = Util.lerDouble();
                 horasValidadas.put(atividade.atividade(), horasValidas);
+                horasValidadasPorModalidade(atividade, horasValidas);
                 somaHorasValidas += horasValidas;
             }
         }
         System.out.println("Total de horas validadas: " + somaHorasValidas);
+        if(requerimento.aluno().horasComplementares() > somaHorasValidas){
+            System.out.println("Requerimento indeferido. \\nMotivo: não atingiu as horas mínimas necessárias.\");");
+        } else{
+            
+        }
         
         
         /*for (AtividadeDeclarada atividade : atividadesDeclaradas) {
@@ -80,6 +96,7 @@ public class HorasValidadas {
         boolean inserido = false;
         for (Map.Entry<Modalidade, Double> modalidade : horasValidadasPorModalidade.entrySet()) {
             if(atividade.atividade().modalidade() == modalidade.getKey()){
+                
                 horasValidadasPorModalidade.put(atividade.atividade().modalidade(), (horasValidadasPorModalidade.get(atividade) + horasValidas));
                 inserido = true;
             }

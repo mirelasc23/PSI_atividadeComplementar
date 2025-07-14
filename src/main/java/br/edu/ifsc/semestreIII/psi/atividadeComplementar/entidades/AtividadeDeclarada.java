@@ -25,4 +25,8 @@ public class AtividadeDeclarada {
     public double percentualMaximo() {
         return atividade.percentualMaximo();
     }
+    
+    public int limiteMaximo(){
+        return atividade.limiteMaxHoras();
+    }
 }

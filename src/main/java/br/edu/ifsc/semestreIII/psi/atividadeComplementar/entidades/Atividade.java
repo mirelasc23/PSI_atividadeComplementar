@@ -24,6 +24,11 @@ public class Atividade {
     
     public double percentualMaximo() {
         return modalidade.percentualMaximo();
-    
     }
+
+    public int limiteMaxHoras() {
+        return limiteMaxHoras;
+    }
+    
+    
 }
