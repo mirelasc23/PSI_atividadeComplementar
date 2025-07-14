@@ -8,6 +8,9 @@ geração de parecer conforme as modalidades definidas no regulamento.
 
 # Diagrama de UML
 
+![Diagrama de Classes](docs/diagrama-classe.png)
+
+
 # Padrões utilizados
 
 # Instruções de uso
